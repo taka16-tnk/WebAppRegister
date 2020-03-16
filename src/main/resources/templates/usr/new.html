@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${title}">title</h1>
+	
+	<form method="post" action="#" th:action="@{/usr/confirm}" th:object="${regUserForm}">
+		<label for="userId">ID：</label>
+		<input id="userId" name="userId" type="text" th:value="*{userId}"><br>
+		<div th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></div>
+		<label for="password">PW：</label>
+		<input id="password" name="password" type="text" th:value="*{password}"><br>
+		<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+		<label for="userName">名前：</label>
+		<input id="userName" name="userName" type="text" th:value="*{userName}"><br>
+		<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+		<label for="email">メールアドレス：</label>
+		<input id="email" name="email" type="text" th:value="*{email}"><br>
+		<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+		<label for="age">年齢：</label>
+		<input id="age" name="age" type="text" th:value="*{age}"><br>
+		<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+		<label for="comment">コメント：</label>
+		<textarea id="comment" name="comment" rows="5" cols="50" th:field="*{comment}"></textarea><br>
+		<div th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></div>
+		<input type="submit" value="確認">
+	</form>
+</body>
+</html>
